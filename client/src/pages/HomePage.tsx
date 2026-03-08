@@ -116,74 +116,63 @@ export const HomePage = (): JSX.Element => {
         </div>
       </section>
       
-      <section className="relative w-full py-20 lg:py-32 bg-black overflow-hidden">
-        {/* Background with image */}
+      <section className="relative w-full py-20 lg:py-32 overflow-hidden">
+        {/* Background */}
         <div className="absolute inset-0 z-0">
           <img
             src="/figmaAssets/mask-group.png"
             alt="Background"
-            className="w-full h-full object-cover opacity-50 blur-sm"
+            className="w-full h-full object-cover opacity-60"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0e0519] via-[#0e0519]/80 to-[#0e0519]/60" />
         </div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8">
-          {/* Background text effect */}
-          <div className="absolute top-[-70px] left-[-341px] w-[1058px] -rotate-90 [font-family:'Tilt_Warp',Helvetica] font-normal text-[#ffffff08] text-[164px] tracking-[-6.56px] leading-[147px] pointer-events-none hidden lg:block">
-            Speaking &amp; Media
-          </div>
-
-          <div className="flex flex-col gap-12">
-            <h2 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-white text-4xl lg:text-5xl tracking-[-0.96px] leading-[normal] text-center lg:text-left mb-8">
+        <div className="relative z-10">
+          <div className="max-w-[1140px] mx-auto px-4 lg:px-8 py-12">
+            <h2 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-white text-4xl lg:text-5xl tracking-[-0.96px] leading-[normal] mb-12">
               Speaking &amp; Media
             </h2>
 
-            <div className="flex flex-col gap-4 mb-12 lg:max-w-2xl">
-              <p className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-lg lg:text-xl tracking-[-0.80px] leading-[30px]">
-                I am a Strategic Advisor trusted inside some of the largest
-                enterprises to guide complex technology, product, and governance
-                decisions.
+            <div className="mb-12 max-w-2xl">
+              <p className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-lg lg:text-xl tracking-[-0.80px] leading-[30px] mb-4">
+                I am a Strategic Advisor trusted inside some of the largest enterprises to guide complex technology, product, and governance decisions.
               </p>
               <p className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-lg lg:text-xl tracking-[-0.80px] leading-[30px]">
-                I am known for asking the questions most people avoid, especially
-                when the cost of getting it wrong is high.
+                I am known for asking the questions most people avoid, especially when the cost of getting it wrong is high.
               </p>
             </div>
 
-            <div className="mb-8">
+            <div>
               <h3 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-white text-2xl lg:text-[28px] tracking-[-0.56px] leading-9 mb-6">
                 Signature Keynotes
               </h3>
 
-              <div className="flex flex-col gap-0 max-w-3xl">
+              <div className="max-w-3xl">
                 {keynotes.map((keynote, index) => (
                   <div
                     key={index}
-                    className={`flex flex-col gap-3 py-6 ${
-                      index < keynotes.length - 1
-                        ? "border-b border-[#d84935]"
-                        : ""
+                    className={`py-6 ${
+                      index < keynotes.length - 1 ? "border-b border-[#d84935]" : ""
                     }`}
                   >
-                    <h4 className="font-bold text-white text-lg lg:text-xl">
+                    <h4 className="font-bold text-white text-lg lg:text-xl mb-3">
                       {keynote.title}
                     </h4>
-
                     <p className="text-[#b7b7b7] text-base lg:text-lg leading-relaxed">
                       {keynote.description}
                     </p>
                   </div>
                 ))}
               </div>
-            </div>
 
-            <Button className="inline-flex items-center justify-center gap-2.5 px-6 py-3 bg-[#972b1c] rounded-lg h-auto hover:bg-[#7a2316] w-fit">
-              <span className="[font-family:'Manrope',Helvetica] font-medium text-white text-lg tracking-[-0.36px] leading-[normal]">
-                Invite Me to Speak
-              </span>
-              <ArrowRightIcon className="w-6 h-6" />
-            </Button>
+              <Button className="mt-8 inline-flex items-center justify-center gap-2.5 px-6 py-3 bg-[#972b1c] rounded-lg h-auto hover:bg-[#7a2316]">
+                <span className="[font-family:'Manrope',Helvetica] font-medium text-white text-lg tracking-[-0.36px]">
+                  Invite Me to Speak
+                </span>
+                <ArrowRightIcon className="w-6 h-6" />
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -260,40 +249,42 @@ export const HomePage = (): JSX.Element => {
         </div>
 
         <div className="max-w-[1140px] mx-auto px-4 lg:px-5">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
-            {testimonials.map((testimonial, index) => (
-              <Card
-                key={index}
-                className="bg-[#ffffff12] rounded-lg overflow-hidden border-[none] before:content-[''] before:absolute before:inset-0 before:p-[1.5px] before:rounded-lg before:[background:linear-gradient(270deg,rgba(152,44,28,1)_0%,rgba(50,14,9,1)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none"
-              >
-                <CardContent className="p-6 lg:p-10 relative">
-                  <img
-                    className="w-10 h-10 mb-8"
-                    alt="Quote"
-                    src="/figmaAssets/boxicons-quote-left-filled.svg"
-                  />
-                  <p className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-base lg:text-xl tracking-[-0.80px] leading-[30px] mb-8">
-                    {testimonial.quote}
-                  </p>
-                  <div className="w-full h-px bg-[#d84935] mb-8" />
-                  <div className="flex items-center gap-4">
+          <div className="overflow-x-auto scrollbar-hide">
+            <div className="flex gap-6 lg:gap-10 pb-4">
+              {testimonials.map((testimonial, index) => (
+                <Card
+                  key={index}
+                  className="flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-24px)] bg-[#ffffff12] rounded-lg overflow-hidden border-[none] before:content-[''] before:absolute before:inset-0 before:p-[1.5px] before:rounded-lg before:[background:linear-gradient(270deg,rgba(152,44,28,1)_0%,rgba(50,14,9,1)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none"
+                >
+                  <CardContent className="p-6 lg:p-10 relative">
                     <img
-                      className="w-[46px] h-[46px] rounded-full object-cover"
-                      alt={testimonial.author}
-                      src={testimonial.image}
+                      className="w-10 h-10 mb-8"
+                      alt="Quote"
+                      src="/figmaAssets/boxicons-quote-left-filled.svg"
                     />
-                    <div className="[font-family:'Manrope',Helvetica] text-base leading-4">
-                      <span className="font-bold text-white tracking-[-0.05px]">
-                        {testimonial.author}{" "}
-                      </span>
-                      <span className="font-medium text-white tracking-[-0.05px]">
-                        {testimonial.role}
-                      </span>
+                    <p className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-base lg:text-xl tracking-[-0.80px] leading-[30px] mb-8">
+                      {testimonial.quote}
+                    </p>
+                    <div className="w-full h-px bg-[#d84935] mb-8" />
+                    <div className="flex items-center gap-4">
+                      <img
+                        className="w-[46px] h-[46px] rounded-full object-cover"
+                        alt={testimonial.author}
+                        src={testimonial.image}
+                      />
+                      <div className="[font-family:'Manrope',Helvetica] text-base leading-4">
+                        <span className="font-bold text-white tracking-[-0.05px]">
+                          {testimonial.author}{" "}
+                        </span>
+                        <span className="font-medium text-white tracking-[-0.05px]">
+                          {testimonial.role}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
 
           <div className="flex justify-center gap-[7px] mt-12">
@@ -305,22 +296,21 @@ export const HomePage = (): JSX.Element => {
 
     
       <section className="relative w-full py-24 lg:py-32 bg-[#1a0505] overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 lg:px-12">
+        <div className="max-w-[1140px] mx-auto px-4 lg:px-8 relative">
 
           {/* Title */}
-          <h2 className="text-4xl lg:text-5xl font-['Tilt_Warp'] mb-8 lg:mb-10">
+          <h2 className="text-4xl lg:text-5xl font-['Tilt_Warp'] mb-12">
             <span className="text-[#d84935]">Beyond</span>
             <span className="text-white"> the Bio</span>
           </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            {/* LEFT: Text Content (5 Columns) */}
-            <div className="lg:col-span-5 flex flex-col gap-8 relative z-30">
+          {/* Grid Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* LEFT: Text Content */}
+            <div className="flex flex-col gap-8">
               {bioPoints.map((point, index) => (
-                <div key={index} className="flex gap-5 items-start group">
-                  {/* Frame 2147226152 - Checkbox Container */}
-                  <div className="flex-shrink-0 relative w-[35px] h-[35px] bg-white/10 rounded-[4px] flex items-center justify-center overflow-hidden">
-                    {/* fa6-solid:check Icon / Vector */}
+                <div key={index} className="flex gap-5 items-start">
+                  <div className="flex-shrink-0 w-[35px] h-[35px] bg-white/10 rounded-[4px] flex items-center justify-center">
                     <svg 
                       width="18" 
                       height="20" 
@@ -334,49 +324,41 @@ export const HomePage = (): JSX.Element => {
                       />
                     </svg>
                   </div>
-
-                  {/* Point Text */}
-                  <p className="font-['Manrope'] text-gray-300 text-base lg:text-lg leading-relaxed pt-1">
+                  <p className="font-['Manrope'] text-[#b7b7b7] text-base lg:text-lg leading-relaxed">
                     {point}
                   </p>
                 </div>
               ))}
             </div>
             
-            {/* RIGHT: Images Section (7 Columns) */}
-            <div className="lg:col-span-7 relative min-h-[400px] lg:min-h-[550px] w-full">
-              {/* 1. The Tall Image - Background Layer */}
-              <div className="absolute left-[35%] top-[25%] w-[50%] h-[50%] rounded-[10px] overflow-hidden shadow-2xl z-0 bg-black/20">
-                <img 
-                  src="/figmaAssets/image-302.png"
-                  className="w-full h-full object-cover" 
-                  style={{ objectPosition: '0px -220px' }} 
-                  alt="Tall Bio" 
-                />
-              </div>
-
-              {/* 2. The Smaller Top Image */}
-              <div className="absolute left-[45%] top-0 w-[35%] h-[35%] rounded-[10px] overflow-hidden shadow-2xl z-20">
-                <img 
-                  src="/figmaAssets/data-center-engineering-team-implements-ai-virtualization-framew.png"
-                  className="w-full h-full object-cover" 
-                  style={{ objectPosition: '-60px -10px' }}
-                  alt="Top Detail" 
-                />
-              </div>
-
-              {/* 3. The Square Team Image - Foreground Layer */}
-              <div className="absolute left-[10%] top-[15%] w-[42%] aspect-square rounded-[10px] overflow-hidden shadow-2xl z-10">
+            {/* RIGHT: Images - Absolute Positioned Stack */}
+            <div className="relative h-[400px] lg:h-[500px]">
+              {/* Image 1: Bottom-right square (334x334) */}
+              <div className="absolute right-0 bottom-0 w-[280px] lg:w-[334px] h-[280px] lg:h-[334px] rounded-[10px] overflow-hidden shadow-2xl z-0 bg-white">
                 <img 
                   src="/figmaAssets/image-314.png"
                   className="w-full h-full object-cover"
-                  style={{ objectPosition: '-50px center' }}
-                  alt="Engineering Team" 
+                  alt="Team" 
                 />
               </div>
 
-              {/* Background Glow to unify the stack */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#9c2d1d]/10 blur-[120px] rounded-full z-[-1] pointer-events-none" />
+              {/* Image 2: Middle-left (297x297) */}
+              <div className="absolute left-0 top-[50px] lg:top-[80px] w-[250px] lg:w-[297px] h-[250px] lg:h-[297px] rounded-[10px] overflow-hidden shadow-2xl z-10 bg-[#a7a7a7]">
+                <img 
+                  src="/figmaAssets/data-center-engineering-team-implements-ai-virtualization-framew.png"
+                  className="w-full h-full object-cover"
+                  alt="Engineering" 
+                />
+              </div>
+
+              {/* Image 3: Top-right small (247x210) */}
+              <div className="absolute right-[30px] lg:right-[80px] top-0 w-[200px] lg:w-[247px] h-[170px] lg:h-[210px] rounded-[10px] overflow-hidden shadow-2xl z-20 bg-[#c0c0c0]">
+                <img 
+                  src="/figmaAssets/image-302.png"
+                  className="w-full h-full object-cover"
+                  alt="Detail" 
+                />
+              </div>
             </div>
           </div>
         </div>
