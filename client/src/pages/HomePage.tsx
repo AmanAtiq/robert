@@ -95,141 +95,157 @@ export const HomePage = (): JSX.Element => {
 
       <HeroSection />
 
-      <section className="relative w-full py-20">
-        <div className="absolute top-[-64px] left-[1380px] [font-family:'Tilt_Warp',Helvetica] font-normal text-[#ffffff08] text-[204px] tracking-[-8.16px] leading-[normal] pointer-events-none">
-          Ideas
+      {/* Investment Philosophy Card */}
+      <section className="w-full px-4 lg:px-8 py-8 lg:py-12">
+        <div className="max-w-7xl mx-auto">
+          <InvestmentPhilosophySection />
         </div>
-        <div className="max-w-[1140px] mx-auto px-5 text-center">
-          <h2 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-5xl tracking-[-0.96px] leading-[normal] mb-12">
-            <span className="text-white tracking-[-0.46px]">
+      </section>
+
+      {/* Investment Philosophy Section */}
+      <section className="w-full py-12 lg:py-20 px-4 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-12 lg:mb-16">
+            <span className="text-white">
               I Ruin Bad Ideas Early So You
               <br />
               only Invest In What&apos;s{" "}
             </span>
-            <span className="text-[#d84935] tracking-[-0.46px]">
-              truly worth building
-            </span>
+            <span className="text-[#d84935]">truly worth building</span>
           </h2>
         </div>
       </section>
-
-      <InvestmentPhilosophySection />
-
-      <section className="relative w-full py-20">
-        <div className="absolute top-[-100px] left-[1333px] [font-family:'Tilt_Warp',Helvetica] font-normal text-[#ffffff08] text-[134px] tracking-[-5.36px] leading-[normal] pointer-events-none">
-          Approach
+      
+      <section className="relative w-full py-20 lg:py-32 bg-black overflow-hidden">
+        {/* Background with image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/figmaAssets/mask-group.png"
+            alt="Background"
+            className="w-full h-full object-cover opacity-50 blur-sm"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/60" />
         </div>
-        <div className="max-w-[1140px] mx-auto px-5">
-          <div className="flex gap-20 items-start">
-            <div className="w-[582px] flex-shrink-0">
-              <div className="w-full h-[727px] flex justify-center bg-white rounded-lg overflow-hidden">
-                <img
-                  className="w-full h-full object-cover"
-                  alt="Building dreamy"
-                  src="/figmaAssets/building-dreamy-setting-1.png"
-                />
-              </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8">
+          {/* Background text effect */}
+          <div className="absolute top-[-70px] left-[-341px] w-[1058px] -rotate-90 [font-family:'Tilt_Warp',Helvetica] font-normal text-[#ffffff08] text-[164px] tracking-[-6.56px] leading-[147px] pointer-events-none hidden lg:block">
+            Speaking &amp; Media
+          </div>
+
+          <div className="flex flex-col gap-12">
+            <h2 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-white text-4xl lg:text-5xl tracking-[-0.96px] leading-[normal] text-center lg:text-left mb-8">
+              Speaking &amp; Media
+            </h2>
+
+            <div className="flex flex-col gap-4 mb-12 lg:max-w-2xl">
+              <p className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-lg lg:text-xl tracking-[-0.80px] leading-[30px]">
+                I am a Strategic Advisor trusted inside some of the largest
+                enterprises to guide complex technology, product, and governance
+                decisions.
+              </p>
+              <p className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-lg lg:text-xl tracking-[-0.80px] leading-[30px]">
+                I am known for asking the questions most people avoid, especially
+                when the cost of getting it wrong is high.
+              </p>
             </div>
 
-            <div className="flex-1">
-              <h2 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-5xl tracking-[-0.96px] leading-[normal] mb-12">
-                <span className="text-white tracking-[-0.46px]">My </span>
-                <span className="text-[#d84935] tracking-[-0.46px]">
-                  Approach
-                </span>
-              </h2>
+            <div className="mb-8">
+              <h3 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-white text-2xl lg:text-[28px] tracking-[-0.56px] leading-9 mb-6">
+                Signature Keynotes
+              </h3>
 
-              <div className="flex flex-col gap-0">
-                {approachPrinciples.map((principle, index) => (
+              <div className="flex flex-col gap-0 max-w-3xl">
+                {keynotes.map((keynote, index) => (
                   <div
                     key={index}
-                    className={`flex flex-col gap-4 pt-0 pb-6 ${
-                      index < approachPrinciples.length - 1
+                    className={`flex flex-col gap-3 py-6 ${
+                      index < keynotes.length - 1
                         ? "border-b border-[#d84935]"
                         : ""
                     }`}
                   >
-                    <h3 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-white text-[28px] tracking-[-0.56px] leading-9">
-                      {principle.title}
-                    </h3>
-                    <p className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-xl tracking-[-0.80px] leading-[30px]">
-                      {principle.description}
+                    <h4 className="font-bold text-white text-lg lg:text-xl">
+                      {keynote.title}
+                    </h4>
+
+                    <p className="text-[#b7b7b7] text-base lg:text-lg leading-relaxed">
+                      {keynote.description}
                     </p>
                   </div>
                 ))}
               </div>
             </div>
+
+            <Button className="inline-flex items-center justify-center gap-2.5 px-6 py-3 bg-[#972b1c] rounded-lg h-auto hover:bg-[#7a2316] w-fit">
+              <span className="[font-family:'Manrope',Helvetica] font-medium text-white text-lg tracking-[-0.36px] leading-[normal]">
+                Invite Me to Speak
+              </span>
+              <ArrowRightIcon className="w-6 h-6" />
+            </Button>
           </div>
-        </div>
-      </section>
-
-      <section className="relative w-full py-20">
-        <div className="absolute top-[-70px] left-[-341px] w-[1058px] -rotate-90 [font-family:'Tilt_Warp',Helvetica] font-normal text-[#ffffff08] text-[164px] tracking-[-6.56px] leading-[147px] pointer-events-none">
-          Speaking &amp; Media
-        </div>
-        <img
-          className="w-full h-[798px] object-cover mb-12"
-          alt="Mask group"
-          src="/figmaAssets/mask-group.png"
-        />
-
-        <div className="max-w-[1140px] mx-auto px-5">
-          <h2 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-white text-5xl tracking-[-0.96px] leading-[normal] text-center mb-12">
-            Speaking &amp; Media
-          </h2>
-
-          <div className="flex flex-col gap-4 mb-12 text-center">
-            <p className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-xl tracking-[-0.80px] leading-[30px]">
-              I am a Strategic Advisor trusted inside some of the largest
-              enterprises to guide complex technology, product, and governance
-              decisions.
-            </p>
-            <p className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-xl tracking-[-0.80px] leading-[30px]">
-              I am known for asking the questions most people avoid, especially
-              when the cost of getting it wrong is high.
-            </p>
-          </div>
-
-          <div className="mb-12">
-            <h3 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-white text-[28px] tracking-[-0.56px] leading-9 mb-6">
-              Signature Keynotes
-            </h3>
-
-            <div className="flex flex-col gap-0">
-              {keynotes.map((keynote, index) => (
-                <div
-                  key={index}
-                  className={`flex flex-col gap-3 pt-0 pb-6 ${
-                    index < keynotes.length - 1
-                      ? "border-b border-[#d84935]"
-                      : ""
-                  }`}
-                >
-                  <h4 className="[font-family:'Manrope',Helvetica] font-bold text-white text-xl tracking-[-0.80px] leading-[normal]">
-                    {keynote.title}
-                  </h4>
-                  <p className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-xl tracking-[-0.80px] leading-[30px]">
-                    {keynote.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <Button className="inline-flex items-center justify-center gap-2.5 px-6 py-3 bg-[#972b1c] rounded-lg h-auto hover:bg-[#7a2316]">
-            <span className="[font-family:'Manrope',Helvetica] font-medium text-white text-lg tracking-[-0.36px] leading-[normal]">
-              Invite Me to Speak
-            </span>
-            <ArrowRightIcon className="w-6 h-6" />
-          </Button>
         </div>
       </section>
 
       <ServicesAndClientsSection />
+      <TestimonialsSection />
+      <section className="w-full py-12 lg:py-20 px-4 lg:px-8">
+        <div className="max-w-7xl mx-auto">
 
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+
+            {/* Image */}
+            <div className="flex justify-center">
+              <div className="relative w-full max-w-[590px] h-auto aspect-[590/731] rounded-lg overflow-hidden">
+
+                <img
+                  className="w-full h-full object-cover opacity-70"
+                  alt="Professional portrait"
+                  src="/figmaAssets/building-dreamy-setting-1.png"
+                />
+
+
+
+              </div>
+            </div>
+
+            {/* Text Column */}
+            <div className="flex flex-col gap-12">
+
+              {/* Heading moved here */}
+              <h2 className="text-4xl lg:text-5xl font-bold">
+                <span className="text-white">My </span>
+                <span className="text-[#d84935]">Approach</span>
+              </h2>
+
+              {approachPrinciples.map((principle, index) => (
+                <div
+                  key={index}
+                  className={`flex flex-col gap-3 pb-6 ${
+                    index < approachPrinciples.length - 1
+                      ? "border-b border-[#d84935]"
+                      : ""
+                  }`}
+                >
+                  <h3 className="text-2xl lg:text-3xl font-bold text-white">
+                    {principle.title}
+                  </h3>
+
+                  <p className="text-[#b7b7b7] text-lg lg:text-xl leading-relaxed">
+                    {principle.description}
+                  </p>
+                </div>
+              ))}
+
+            </div>
+
+          </div>
+        </div>
+      </section>
       <section className="relative w-full py-20">
-        <div className="max-w-[1140px] mx-auto px-5 text-center mb-16">
-          <h2 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-5xl tracking-[-0.96px] leading-[normal]">
+        <div className="max-w-[1140px] mx-auto px-4 lg:px-5 text-center mb-16">
+          <h2 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-3xl lg:text-5xl tracking-[-0.96px] leading-[normal]">
             <span className="text-white tracking-[-0.46px]">
               Trusted Behind the Scenes of
               <br />
@@ -243,20 +259,20 @@ export const HomePage = (): JSX.Element => {
           </h2>
         </div>
 
-        <div className="max-w-[1140px] mx-auto px-5">
-          <div className="grid grid-cols-3 gap-10">
+        <div className="max-w-[1140px] mx-auto px-4 lg:px-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
             {testimonials.map((testimonial, index) => (
               <Card
                 key={index}
                 className="bg-[#ffffff12] rounded-lg overflow-hidden border-[none] before:content-[''] before:absolute before:inset-0 before:p-[1.5px] before:rounded-lg before:[background:linear-gradient(270deg,rgba(152,44,28,1)_0%,rgba(50,14,9,1)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none"
               >
-                <CardContent className="p-10 relative">
+                <CardContent className="p-6 lg:p-10 relative">
                   <img
                     className="w-10 h-10 mb-8"
                     alt="Quote"
                     src="/figmaAssets/boxicons-quote-left-filled.svg"
                   />
-                  <p className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-xl tracking-[-0.80px] leading-[30px] mb-8">
+                  <p className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-base lg:text-xl tracking-[-0.80px] leading-[30px] mb-8">
                     {testimonial.quote}
                   </p>
                   <div className="w-full h-px bg-[#d84935] mb-8" />
@@ -287,55 +303,80 @@ export const HomePage = (): JSX.Element => {
         </div>
       </section>
 
-      <TestimonialsSection />
+    
+      <section className="relative w-full py-24 lg:py-32 bg-[#1a0505] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 lg:px-12">
 
-      <section className="relative w-full py-20">
-        <div className="max-w-[1140px] mx-auto px-5">
-          <h2 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-5xl tracking-[-0.96px] leading-[normal] mb-12">
-            <span className="text-[#d84935] tracking-[-0.46px]">Beyond</span>
-            <span className="text-white tracking-[-0.46px]"> the Bio</span>
+          {/* Title */}
+          <h2 className="text-4xl lg:text-5xl font-['Tilt_Warp'] mb-8 lg:mb-10">
+            <span className="text-[#d84935]">Beyond</span>
+            <span className="text-white"> the Bio</span>
           </h2>
 
-          <div className="flex gap-20 items-start">
-            <div className="flex-1">
-              <div className="flex flex-col gap-6">
-                {bioPoints.map((point, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <img
-                      className="w-[35px] h-[35px] flex-shrink-0"
-                      alt="Checkmark"
-                      src="/figmaAssets/frame-2147226154.svg"
-                    />
-                    <p className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-xl tracking-[-0.80px] leading-[30px]">
-                      {point}
-                    </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            {/* LEFT: Text Content (5 Columns) */}
+            <div className="lg:col-span-5 flex flex-col gap-8 relative z-30">
+              {bioPoints.map((point, index) => (
+                <div key={index} className="flex gap-5 items-start group">
+                  {/* Frame 2147226152 - Checkbox Container */}
+                  <div className="flex-shrink-0 relative w-[35px] h-[35px] bg-white/10 rounded-[4px] flex items-center justify-center overflow-hidden">
+                    {/* fa6-solid:check Icon / Vector */}
+                    <svg 
+                      width="18" 
+                      height="20" 
+                      viewBox="0 0 18 20" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path 
+                        d="M16.7071 5.29289C17.0976 5.68342 17.0976 6.31658 16.7071 6.70711L8.70711 14.7071C8.31658 15.0976 7.68342 15.0976 7.29289 14.7071L3.29289 10.7071C2.90237 10.3166 2.90237 9.68342 3.29289 9.29289C3.68342 8.90237 4.31658 8.90237 4.70711 9.29289L8 12.5858L15.2929 5.29289C15.6834 4.90237 16.3166 4.90237 16.7071 5.29289Z" 
+                        fill="#D84A35" 
+                      />
+                    </svg>
                   </div>
-                ))}
-              </div>
-            </div>
 
-            <div className="flex-shrink-0 relative">
-              <div className="absolute top-[-84px] left-[205px] w-[247px] h-[210px] bg-[#c0c0c0] rounded-[10px] overflow-hidden z-30">
-                <img
-                  className="w-full h-full object-cover"
-                  alt="Image"
+                  {/* Point Text */}
+                  <p className="font-['Manrope'] text-gray-300 text-base lg:text-lg leading-relaxed pt-1">
+                    {point}
+                  </p>
+                </div>
+              ))}
+            </div>
+            
+            {/* RIGHT: Images Section (7 Columns) */}
+            <div className="lg:col-span-7 relative min-h-[400px] lg:min-h-[550px] w-full">
+              {/* 1. The Tall Image - Background Layer */}
+              <div className="absolute left-[35%] top-[25%] w-[50%] h-[50%] rounded-[10px] overflow-hidden shadow-2xl z-0 bg-black/20">
+                <img 
                   src="/figmaAssets/image-302.png"
+                  className="w-full h-full object-cover" 
+                  style={{ objectPosition: '0px -220px' }} 
+                  alt="Tall Bio" 
                 />
               </div>
-              <div className="absolute top-[-60px] left-0 w-[297px] h-[297px] bg-[#a6a6a6] rounded-[10px] overflow-hidden z-20">
-                <img
-                  className="w-full h-full object-cover"
-                  alt="Data center"
+
+              {/* 2. The Smaller Top Image */}
+              <div className="absolute left-[45%] top-0 w-[35%] h-[35%] rounded-[10px] overflow-hidden shadow-2xl z-20">
+                <img 
                   src="/figmaAssets/data-center-engineering-team-implements-ai-virtualization-framew.png"
+                  className="w-full h-full object-cover" 
+                  style={{ objectPosition: '-60px -10px' }}
+                  alt="Top Detail" 
                 />
               </div>
-              <div className="w-[334px] h-[334px] bg-white rounded-[10px] overflow-hidden z-10">
-                <img
-                  className="w-full h-full object-cover"
-                  alt="Image"
+
+              {/* 3. The Square Team Image - Foreground Layer */}
+              <div className="absolute left-[10%] top-[15%] w-[42%] aspect-square rounded-[10px] overflow-hidden shadow-2xl z-10">
+                <img 
                   src="/figmaAssets/image-314.png"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: '-50px center' }}
+                  alt="Engineering Team" 
                 />
               </div>
+
+              {/* Background Glow to unify the stack */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#9c2d1d]/10 blur-[120px] rounded-full z-[-1] pointer-events-none" />
             </div>
           </div>
         </div>
@@ -345,23 +386,30 @@ export const HomePage = (): JSX.Element => {
         <div className="absolute top-[-100px] left-5 [font-family:'Tilt_Warp',Helvetica] font-normal text-[#ffffff08] text-[184px] tracking-[-7.36px] leading-[normal] pointer-events-none">
           Right Call
         </div>
-        <div className="max-w-[1140px] mx-auto px-5">
-          <h2 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-5xl tracking-[-0.96px] leading-[62px] mb-8">
-            <span className="text-[#d84935] tracking-[-0.46px]">Ready</span>
-            <span className="text-white tracking-[-0.46px]">
-              {" "}
-              to Make the Right Call?
-            </span>
-          </h2>
-          <p className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-xl tracking-[-0.80px] leading-[30px] max-w-[440px]">
-            If you are about to commit serious capital, reputation, or talent to
-            a major decision and want clarity before consequences, send me a
-            message.
-          </p>
-        </div>
-      </section>
+      
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+              <div>
+                <h2 className="text-3xl lg:text-5xl font-bold mb-8 lg:mb-12">
+                  <span className="text-[#d84935]">Ready</span>
+                  <span className="text-white"> to Make the Right Call?</span>
+                </h2>
 
-      <ContactFormSection />
+                <p className="text-[#b7b7b7] text-lg lg:text-xl leading-relaxed">
+                  If you are about to commit serious capital, reputation, or talent to a
+                  major decision and want clarity before consequences, send me a
+                  message.
+                </p>
+              </div>
+
+              <div className="flex justify-center lg:justify-end">
+                <ContactFormSection />
+              </div>
+            </div>
+          </div>
+        </section>
+
+    
 
       <BioAndCallToActionSection />
     </div>

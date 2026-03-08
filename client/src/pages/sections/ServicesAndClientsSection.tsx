@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
+import React from "react";
 
 const clientTypes = [
   "Executives making high-stakes technology bets",
@@ -17,52 +17,70 @@ const services = [
 
 export const ServicesAndClientsSection = (): JSX.Element => {
   return (
-    <section className="relative w-full py-16 overflow-hidden bg-[url(/figmaAssets/frame-2147226140.svg)] bg-[100%_100%]">
-      <div className="absolute top-[-58px] left-[-470px] w-[1557px] h-[853px] bg-[#5b061e80] rounded-[778.5px/426.5px] blur-[300px]" />
+    <section className="relative w-full py-20 lg:py-32 bg-black overflow-hidden border-t border-white/5">
 
-      <div className="absolute top-[-332px] left-[1362px] w-[966px] h-[724px] bg-[#240202] rounded-[483px/362px] blur-[85px]" />
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/figmaAssets/frame-2147226140.svg"
+          alt="Background"
+          className="w-full h-full object-cover opacity-70"
+        />
 
-      <div className="relative max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <Card className="bg-transparent border-none shadow-none">
-            <CardContent className="p-0 space-y-8">
-              <h2 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-white text-[32px] tracking-[-0.64px] leading-10">
-                Who I Work With
-              </h2>
+        {/* subtle tint */}
+        <div className="absolute inset-0 bg-[#5b061e]/20" />
+      </div>
 
-              <ul className="flex flex-col gap-4">
-                {clientTypes.map((client, index) => (
-                  <li
-                    key={`client-${index}`}
-                    className="[font-family:'Manrope',Helvetica] font-medium text-white text-xl tracking-[-0.16px] leading-[30px]"
-                  >
+      {/* Decorative Blurs */}
+      <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
+        <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[100%] bg-[#5b061e70] rounded-full blur-[150px]" />
+        <div className="absolute top-[10%] -right-[10%] w-[60%] h-[80%] bg-[#24020270] rounded-full blur-[130px]" />
+        <div className="absolute bottom-[-20%] right-[0%] w-[70%] h-[90%] bg-[#5b061e50] rounded-full blur-[150px]" />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-20 w-full mx-auto px-6 lg:pl-[45%] lg:pr-[5%]">
+        <div className="flex flex-col gap-24">
+
+          {/* Who I Work With */}
+          <div className="flex flex-col gap-8">
+            <h2 className="font-['Tilt_Warp'] text-white text-2xl lg:text-3xl tracking-tight border-l-4 border-[#9c2d1d] pl-4">
+              Who I Work With
+            </h2>
+
+            <ul className="space-y-6">
+              {clientTypes.map((client, idx) => (
+                <li key={idx} className="flex items-center gap-4 group">
+                  <span className="w-2.5 h-2.5 bg-[#9c2d1d] rounded-full group-hover:scale-125 transition-transform" />
+                  <span className="font-['Manrope'] text-gray-300 text-lg lg:text-xl group-hover:text-white transition-colors">
                     {client}
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          <Card className="bg-transparent border-none shadow-none">
-            <CardContent className="p-0 space-y-8">
-              <h2 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-white text-[32px] tracking-[-0.64px] leading-10">
-                What I Do
-              </h2>
+          {/* What I Do */}
+          <div className="flex flex-col gap-8">
+            <h2 className="font-['Tilt_Warp'] text-white text-2xl lg:text-3xl tracking-tight border-l-4 border-[#9c2d1d] pl-4">
+              What I Do
+            </h2>
 
-              <ul className="flex flex-col gap-4">
-                {services.map((service, index) => (
-                  <li
-                    key={`service-${index}`}
-                    className="[font-family:'Manrope',Helvetica] font-medium text-white text-xl tracking-[-0.16px] leading-[30px]"
-                  >
+            <ul className="space-y-6">
+              {services.map((service, idx) => (
+                <li key={idx} className="flex items-center gap-4 group">
+                  <span className="w-2.5 h-2.5 bg-[#9c2d1d] rounded-full group-hover:scale-125 transition-transform" />
+                  <span className="font-['Manrope'] text-gray-300 text-lg lg:text-xl group-hover:text-white transition-colors">
                     {service}
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
         </div>
       </div>
+
     </section>
   );
 };

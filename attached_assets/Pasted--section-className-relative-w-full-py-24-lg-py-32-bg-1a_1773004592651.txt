@@ -1,0 +1,80 @@
+      <section className="relative w-full py-24 lg:py-32 bg-[#1a0505] overflow-hidden">
+        
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+
+          {/* Title */}
+          <h2 className="text-5xl lg:text-6xl font-['Tilt_Warp'] mb-8 lg:mb-10">
+            <span className="text-[#d84935]">Beyond</span>
+            <span className="text-white"> the Bio</span>
+          </h2>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            {/* LEFT: Text Content (5 Columns) */}
+            <div className="lg:col-span-5 flex flex-col gap-8 relative z-30">
+              {bioPoints.map((point, index) => (
+                <div key={index} className="flex gap-5 items-start group">
+                  {/* Frame 2147226152 - Checkbox Container */}
+                  <div className="flex-shrink-0 relative w-[35px] h-[35px] bg-white/10 rounded-[4px] flex items-center justify-center overflow-hidden">
+                    {/* fa6-solid:check Icon / Vector */}
+                    <svg 
+                      width="18" 
+                      height="20" 
+                      viewBox="0 0 18 20" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path 
+                        d="M16.7071 5.29289C17.0976 5.68342 17.0976 6.31658 16.7071 6.70711L8.70711 14.7071C8.31658 15.0976 7.68342 15.0976 7.29289 14.7071L3.29289 10.7071C2.90237 10.3166 2.90237 9.68342 3.29289 9.29289C3.68342 8.90237 4.31658 8.90237 4.70711 9.29289L8 12.5858L15.2929 5.29289C15.6834 4.90237 16.3166 4.90237 16.7071 5.29289Z" 
+                        fill="#D84A35" 
+                      />
+                    </svg>
+                  </div>
+
+                  {/* Point Text */}
+                  <p className="font-['Manrope'] text-gray-300 text-lg lg:text-xl leading-relaxed pt-1">
+                    {point}
+                  </p>
+                </div>
+              ))}
+            </div>
+            
+            {/* min-h ensured the section doesn't collapse */}
+                  <div className="lg:col-span-7 relative min-h-[500px] lg:min-h-[550px] w-full mt+40">{/* 1. The Tall Image - Background Layer (Frame 2147226151) */}
+              <div className="absolute left-[35%] top-[25%] w-[50%] h-[50%] rounded-[10px] overflow-hidden shadow-2xl z-0 bg-black/20">
+                <img 
+                  src={bioImages[0].src} 
+                  /* Use object-contain to see the full image, or remove objectPosition to center it */
+                  className="w-full h-full object-cover " 
+                  style={{ objectPosition: '   0px -220px' }} 
+                  alt="Tall Bio" 
+                />
+              </div>
+
+              {/* 2. The Smaller Top Image (Frame 2147226156 - 247x210) */}
+              {/* Increased Z-Index from 0 to 10 and REMOVED BORDER so it takes full shape */}
+              <div className="absolute left-[45%] top-0 w-[35%] h-[35%] rounded-[10px] overflow-hidden shadow-2xl z-20">
+                <img 
+                  src={bioImages[2].src} 
+                  className="w-full h-full object-cover scale-310" 
+                  style={{ objectPosition: '-60px -10px' }} // mimics Figma crop
+                  alt="Top Detail" 
+                />
+              </div>
+
+              {/* 3. The Square Team Image - Foreground Layer (Frame 2147226156 - 297x297) */}
+              {/* Z-Index increased from 10 to 20 to sit on top of both layers, REMOVED BORDER */}
+              <div className="absolute left-[10%] top-[15%] w-[42%] aspect-square rounded-[10px] overflow-hidden shadow-2xl z-10">
+                <img 
+                  src={bioImages[1].src} 
+                  className="w-full h-full object-cover scale-210" // scale/offset to mimic Figma crop
+                  style={{ objectPosition: '-50px center' }}
+                  alt="Engineering Team" 
+                />
+              </div>
+
+              {/* Background Glow to unify the stack */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[full] h-full bg-[#9c2d1d]/10 blur-[120px] rounded-full z-[-1] pointer-events-none" />
+            </div>
+          </div>
+        </div>
+      </section>

@@ -9,46 +9,46 @@ const contentParagraphs = [
 export const InvestmentPhilosophySection = (): JSX.Element => {
   return (
     <section className="relative w-full py-16 px-4">
-      <Card className="relative max-w-7xl mx-auto bg-[#ffffff12] rounded-lg overflow-hidden border-[none] before:content-[''] before:absolute before:inset-0 before:p-[1.5px] before:rounded-lg before:[background:linear-gradient(270deg,rgba(152,44,28,1)_0%,rgba(50,14,9,1)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none">
-        <div className="absolute top-[194px] left-[155px] w-[565px] h-[587px] bg-[#490102] rounded-[282.5px/293.5px] blur-[195px]" />
+      <Card className="relative max-w-7xl mx-auto bg-[#ffffff08] rounded-lg overflow-hidden border border-[#490102] shadow-2xl">
+
+        <div className="absolute top-[10%] left-[5%] w-[500px] h-[500px] bg-[#490102] opacity-40 rounded-full blur-[150px] pointer-events-none" />
 
         <CardContent className="relative p-0">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8 lg:p-12">
-            <div className="flex flex-col gap-8">
-              <div className="w-full max-w-[443px] h-auto aspect-[443/731] bg-white rounded-lg overflow-hidden">
+          {/* We use items-start to let the text define the height */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 p-8 lg:p-12 items-start">
+
+            {/* LEFT: Image Column */}
+            {/* lg:self-stretch allows the div to match the height of the right column */}
+            <div className="relative w-full h-full min-h-[100px]  lg:min-h-0  lg:self-stretch">
+              <div className="lg:absolute lg:inset-0 bg-[#1a0505] rounded-lg overflow-hidden border border-white/5">
                 <img
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700"
                   alt="Professional portrait"
                   src="/figmaAssets/image-303.png"
                 />
               </div>
             </div>
 
-            <div className="flex flex-col gap-8">
-              <h2 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-4xl lg:text-5xl tracking-[-0.96px] leading-tight">
-                <span className="text-white tracking-[-0.46px]">
-                  Smart People Make{" "}
-                </span>
-                <span className="text-[#d84935] tracking-[-0.46px]">
-                  Expensive
-                </span>
-                <span className="text-white tracking-[-0.46px]">
-                  {" "}
-                  Mistakes.
-                </span>
+            {/* RIGHT: Text Content Column */}
+            <div className="flex flex-col justify-center gap-8 py-2">
+              <h2 className="font-['Tilt_Warp'] font-normal text-4xl lg:text-5xl leading-tight">
+                <span className="text-white">Smart People Make </span>
+                <span className="text-[#d84935]">Expensive</span>
+                <span className="text-white"> Mistakes.</span>
               </h2>
 
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-6">
                 {contentParagraphs.map((paragraph, index) => (
                   <p
                     key={index}
-                    className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-lg lg:text-xl tracking-[-0.16px] leading-[30px]"
+                    className="font-['Manrope'] font-medium text-[#b7b7b7] text-lg lg:text-xl leading-relaxed tracking-tight"
                   >
                     {paragraph}
                   </p>
                 ))}
               </div>
             </div>
+
           </div>
         </CardContent>
       </Card>

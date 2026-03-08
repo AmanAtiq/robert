@@ -101,11 +101,11 @@ export const HeroSection = (): JSX.Element => {
           </span>
         </div>
 
-        <h1 className="absolute top-[238px] left-[calc(50.00%_-_570px)] w-[751px] [font-family:'Tilt_Warp',Helvetica] font-normal text-white text-[54px] tracking-[-1.08px] leading-[76px]">
+
+        <h1 className="absolute top-[238px] left-[390px] w-[751px] [font-family:'Tilt_Warp',Helvetica] font-normal text-white text-[54px] tracking-[-1.08px] leading-[76px]">
           Who Leaders Call When the Stakes Are High and Getting It Wrong Costs
           Millions
         </h1>
-
         <p className="absolute top-[502px] left-[390px] [font-family:'Manrope',Helvetica] font-medium text-[#d6d6d6] text-2xl tracking-[-0.96px] leading-[44px] whitespace-nowrap">
           I pressure-test ideas before you waste people, capital, or
           credibility.
