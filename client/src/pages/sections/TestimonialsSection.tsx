@@ -44,7 +44,7 @@ export const TestimonialsSection = (): JSX.Element => {
           {/* LEFT: Text Content */}
           <div className="lg:col-span-7 flex flex-col gap-20">
             <div className="flex flex-col gap-8">
-              <h2 className="font-['Tilt_Warp'] text-white text-2xl lg:text-3xl tracking-tight border-l-4 border-[#9c2d1d] pl-4">
+              <h2 className="font-['Tilt_Warp'] text-white text-2xl lg:text-3xl tracking-tight ">
                 What Clients Gain
               </h2>
               <ul className="space-y-6">
@@ -60,7 +60,7 @@ export const TestimonialsSection = (): JSX.Element => {
             </div>
 
             <div className="flex flex-col gap-8">
-              <h2 className="font-['Tilt_Warp'] text-white text-2xl lg:text-3xl tracking-tight border-l-4 border-[#9c2d1d] pl-4">
+              <h2 className="font-['Tilt_Warp'] text-white text-2xl lg:text-3xl tracking-tight  ">
                 Enterprise Results
               </h2>
               <ul className="space-y-6">

@@ -44,7 +44,8 @@ export const ServicesAndClientsSection = (): JSX.Element => {
 
           {/* Who I Work With */}
           <div className="flex flex-col gap-8">
-            <h2 className="font-['Tilt_Warp'] text-white text-2xl lg:text-3xl tracking-tight border-l-4 border-[#9c2d1d] pl-4">
+            <h2 className="font-['Tilt_Warp'] text-white text-2xl lg:text-3xl tracking-tight 
+              ">
               Who I Work With
             </h2>
 
@@ -62,7 +63,7 @@ export const ServicesAndClientsSection = (): JSX.Element => {
 
           {/* What I Do */}
           <div className="flex flex-col gap-8">
-            <h2 className="font-['Tilt_Warp'] text-white text-2xl lg:text-3xl tracking-tight border-l-4 border-[#9c2d1d] pl-4">
+            <h2 className="font-['Tilt_Warp'] text-white text-2xl lg:text-3xl tracking-tight  ">
               What I Do
             </h2>
 

@@ -7,7 +7,7 @@ import { HeroSection } from "./sections/HeroSection";
 import { InvestmentPhilosophySection } from "./sections/InvestmentPhilosophySection";
 import { ServicesAndClientsSection } from "./sections/ServicesAndClientsSection";
 import { TestimonialsSection } from "./sections/TestimonialsSection";
-
+import React, { useState } from "react";
 const approachPrinciples = [
   {
     title: "Truth Over Comfort",
@@ -74,6 +74,19 @@ const testimonials = [
     role: "Consultant",
     image: "/figmaAssets/image-296.png",
   },
+  {
+    quote:
+      "With Robert's cleverness we were always one step ahead. We achieved excellent results.",
+    author: "Mehmet Taluk,",
+    role: "Consultant",
+    image: "/figmaAssets/image-296.png",
+  },  {
+    quote:
+      "With Robert's cleverness we were always one step ahead. We achieved excellent results.",
+    author: "Mehmet Taluk,",
+    role: "Consultant",
+    image: "/figmaAssets/image-296.png",
+  },
 ];
 
 const bioPoints = [
@@ -84,6 +97,7 @@ const bioPoints = [
 ];
 
 export const HomePage = (): JSX.Element => {
+  const [testimonialIndex, setTestimonialIndex] = useState(0);
   return (
     <div className="bg-[#220000] overflow-hidden w-full relative">
       <div className="absolute top-[749px] left-[-293px] w-[1705px] h-[315px] bg-[#210806] rounded-[852.5px/157.5px] blur-[112px] pointer-events-none" />
@@ -116,67 +130,7 @@ export const HomePage = (): JSX.Element => {
         </div>
       </section>
       
-      <section className="relative w-full py-20 lg:py-32 overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/figmaAssets/mask-group.png"
-            alt="Background"
-            className="w-full h-full object-cover opacity-60"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0e0519] via-[#0e0519]/80 to-[#0e0519]/60" />
-        </div>
-
-        {/* Content */}
-        <div className="relative z-10">
-          <div className="max-w-[1140px] mx-auto px-4 lg:px-8 py-12">
-            <h2 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-white text-4xl lg:text-5xl tracking-[-0.96px] leading-[normal] mb-12">
-              Speaking &amp; Media
-            </h2>
-
-            <div className="mb-12 max-w-2xl">
-              <p className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-lg lg:text-xl tracking-[-0.80px] leading-[30px] mb-4">
-                I am a Strategic Advisor trusted inside some of the largest enterprises to guide complex technology, product, and governance decisions.
-              </p>
-              <p className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-lg lg:text-xl tracking-[-0.80px] leading-[30px]">
-                I am known for asking the questions most people avoid, especially when the cost of getting it wrong is high.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-white text-2xl lg:text-[28px] tracking-[-0.56px] leading-9 mb-6">
-                Signature Keynotes
-              </h3>
-
-              <div className="max-w-3xl">
-                {keynotes.map((keynote, index) => (
-                  <div
-                    key={index}
-                    className={`py-6 ${
-                      index < keynotes.length - 1 ? "border-b border-[#d84935]" : ""
-                    }`}
-                  >
-                    <h4 className="font-bold text-white text-lg lg:text-xl mb-3">
-                      {keynote.title}
-                    </h4>
-                    <p className="text-[#b7b7b7] text-base lg:text-lg leading-relaxed">
-                      {keynote.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              <Button className="mt-8 inline-flex items-center justify-center gap-2.5 px-6 py-3 bg-[#972b1c] rounded-lg h-auto hover:bg-[#7a2316]">
-                <span className="[font-family:'Manrope',Helvetica] font-medium text-white text-lg tracking-[-0.36px]">
-                  Invite Me to Speak
-                </span>
-                <ArrowRightIcon className="w-6 h-6" />
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
+     
       <ServicesAndClientsSection />
       <TestimonialsSection />
       <section className="w-full py-12 lg:py-20 px-4 lg:px-8">
@@ -232,68 +186,122 @@ export const HomePage = (): JSX.Element => {
           </div>
         </div>
       </section>
-      <section className="relative w-full py-20">
-        <div className="max-w-[1140px] mx-auto px-4 lg:px-5 text-center mb-16">
-          <h2 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-3xl lg:text-5xl tracking-[-0.96px] leading-[normal]">
-            <span className="text-white tracking-[-0.46px]">
-              Trusted Behind the Scenes of
-              <br />
-            </span>
-            <span className="text-[#d84935] tracking-[-0.46px]">
-              Fortune 100{" "}
-            </span>
-            <span className="text-white tracking-[-0.46px]">
-              and Global Enterprise Organizations
-            </span>
+       <section className="relative w-full py-20 lg:py-32 overflow-hidden">
+        {/* TOP CONTENT: Centered Header and Intro Paragraphs */}
+        <div className="relative z-20 max-w-[1140px] mx-auto px-4 lg:px-8 text-center flex flex-col items-center mb-16">
+          <h2 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-white text-4xl lg:text-5xl tracking-[-0.96px] mb-12">
+            Speaking &amp; Media
           </h2>
+
+          <div className="flex flex-col items-center">
+            {/* Reduced negative tracking from -0.80px to -0.01em for better readability */}
+            <p className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-lg lg:text-xl tracking-[-0.2px] leading-[30px] mb-4 max-w-[1100px]">
+              I am a Strategic Advisor trusted inside some of the largest enterprises to guide complex technology, product, and governance decisions.
+            </p>
+            <p className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-lg lg:text-xl tracking-[-0.2px] leading-[30px] max-w-[1850px]">
+              I am known for asking the questions most people avoid, especially when the cost of getting it wrong is high.
+            </p>
+          </div>
         </div>
 
-        <div className="max-w-[1140px] mx-auto px-4 lg:px-5">
-          <div className="overflow-x-auto scrollbar-hide">
-            <div className="flex gap-6 lg:gap-10 pb-4">
-              {testimonials.map((testimonial, index) => (
-                <Card
-                  key={index}
-                  className="flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-24px)] bg-[#ffffff12] rounded-lg overflow-hidden border-[none] before:content-[''] before:absolute before:inset-0 before:p-[1.5px] before:rounded-lg before:[background:linear-gradient(270deg,rgba(152,44,28,1)_0%,rgba(50,14,9,1)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none"
-                >
-                  <CardContent className="p-6 lg:p-10 relative">
-                    <img
-                      className="w-10 h-10 mb-8"
-                      alt="Quote"
-                      src="/figmaAssets/boxicons-quote-left-filled.svg"
-                    />
-                    <p className="[font-family:'Manrope',Helvetica] font-medium text-[#b7b7b7] text-base lg:text-xl tracking-[-0.80px] leading-[30px] mb-8">
-                      {testimonial.quote}
-                    </p>
-                    <div className="w-full h-px bg-[#d84935] mb-8" />
-                    <div className="flex items-center gap-4">
-                      <img
-                        className="w-[46px] h-[46px] rounded-full object-cover"
-                        alt={testimonial.author}
-                        src={testimonial.image}
-                      />
-                      <div className="[font-family:'Manrope',Helvetica] text-base leading-4">
-                        <span className="font-bold text-white tracking-[-0.05px]">
-                          {testimonial.author}{" "}
-                        </span>
-                        <span className="font-medium text-white tracking-[-0.05px]">
-                          {testimonial.role}
-                        </span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+        {/* BOTTOM CONTENT AREA */}
+        <div className="relative w-full min-h-fit">
+
+          {/* VERTICAL BACKGROUND TEXT: 90 Degree Standing */}
+          <div className="absolute top-0 left-[-13%] bottom-110 hidden lg:flex items-center justify-center z-0 pointer-events-none">
+            <div className="rotate-[-90deg] [font-family:'Tilt_Warp',Helvetica] font-normal text-[#ffffff08] text-[120px] lg:text-[144px] tracking-[-7.36px] uppercase text-center leading-[1]">
+              Speaking &<br />
+              Media
             </div>
           </div>
 
-          <div className="flex justify-center gap-[7px] mt-12">
-            <div className="w-2.5 h-2.5 bg-[#9c2d1d] rounded-[5px]" />
-            <div className="w-2.5 h-2.5 bg-white rounded-[5px] opacity-40" />
+          {/* BACKGROUND IMAGE LAYER */}
+          <div className="absolute top-0 left-0 lg:left-[20%] right-0 bottom-0 z-0 pointer-events-none overflow-hidden">
+            <img
+              src="/figmaAssets/mask-group.png"
+              alt="Background"
+              className="w-full h-full object-cover opacity-90"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#220000] via-[#220000]/80 to-[#972b1c]/15" />
+          </div>
+
+          {/* CONTENT LAYER */}
+          <div className="relative z-10 max-w-[1140px] mx-auto px-4 lg:px-8 py-4">
+            <div className="w-full flex flex-col items-start text-left">
+              <h3 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-white text-2xl lg:text-[28px] tracking-[-0.56px] leading-9 mb-6">
+                Signature Keynotes
+              </h3>
+
+              <div className="max-w-3xl w-full">
+                {keynotes.map((keynote, index) => (
+                  <div
+                    key={index}
+                    className={`py-6 relative z-10 ${
+                      index < keynotes.length - 1 ? "border-b border-[#d84935]" : ""
+                    }`}
+                  >
+                    <h4 className="font-bold text-white text-lg lg:text-xl mb-3">
+                      {keynote.title}
+                    </h4>
+                    <p className="text-[#b7b7b7] text-base lg:text-lg leading-relaxed">
+                      {keynote.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <Button className="mt-8 inline-flex items-center justify-center gap-2.5 px-6 py-3 bg-[#972b1c] rounded-lg h-auto hover:bg-[#7a2316] relative z-20">
+                <span className="[font-family:'Manrope',Helvetica] font-medium text-white text-lg tracking-[-0.36px]">
+                  Invite Me to Speak
+                </span>
+                <ArrowRightIcon className="w-6 h-6" />
+              </Button>
+            </div>
           </div>
         </div>
       </section>
+      <section className="relative w-full py-20">
+        <div className="max-w-[1140px] mx-auto px-4 lg:px-5 text-center mb-16">
+          <h2 className="[font-family:'Tilt_Warp',Helvetica] font-normal text-3xl lg:text-5xl tracking-tight text-white">
+            Trusted Behind the Scenes of <span className="text-[#d84935]">Fortune 100</span>
+          </h2>
+        </div>
 
+        <div className="max-w-[1140px] mx-auto px-4 lg:px-5 overflow-hidden">
+          <div 
+            className="flex gap-6 lg:gap-10 transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${testimonialIndex * 100}%)` }}
+          >
+            {testimonials.map((t, i) => (
+              <Card key={i} className="flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-27px)] bg-[#ffffff12] border-none relative">
+                <CardContent className="p-10">
+                  <img className="w-10 h-10 mb-8" src="/figmaAssets/boxicons-quote-left-filled.svg" alt="Quote" />
+                  <p className="text-[#b7b7b7] text-lg lg:text-xl leading-[30px] mb-8 tracking-tight">{t.quote}</p>
+                  <div className="w-full h-px bg-[#d84935] mb-8" />
+                  <div className="flex items-center gap-4">
+                    <img className="w-[46px] h-[46px] rounded-full object-cover" src={t.image} alt={t.author} />
+                    <div className="text-white">
+                      <p className="font-bold">{t.author}</p>
+                      <p className="text-sm opacity-70">{t.role}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          {/* SLIDER DOTS */}
+          <div className="flex justify-center gap-3 mt-12">
+            {[0, 1].map((dot) => (
+              <button 
+                key={dot}
+                onClick={() => setTestimonialIndex(dot)}
+                title={`Go to testimonial ${dot + 1}`}
+                className={`w-3 h-3 rounded-full transition-all ${testimonialIndex === dot ? "bg-[#9c2d1d] scale-125" : "bg-white opacity-40"}`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
     
       <section className="relative w-full py-24 lg:py-32 bg-[#1a0505] overflow-hidden">
         <div className="max-w-[1140px] mx-auto px-4 lg:px-8 relative">
@@ -365,11 +373,8 @@ export const HomePage = (): JSX.Element => {
       </section>
 
       <section className="relative w-full py-20">
-        <div className="absolute top-[-100px] left-5 [font-family:'Tilt_Warp',Helvetica] font-normal text-[#ffffff08] text-[184px] tracking-[-7.36px] leading-[normal] pointer-events-none">
-          Right Call
-        </div>
-      
-          <div className="max-w-7xl mx-auto">
+     
+          <div className="max-w-7xl mx-auto px-4 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               <div>
                 <h2 className="text-3xl lg:text-5xl font-bold mb-8 lg:mb-12">
@@ -382,13 +387,21 @@ export const HomePage = (): JSX.Element => {
                   major decision and want clarity before consequences, send me a
                   message.
                 </p>
-              </div>
 
+                <div className="mt-8 [font-family:'Tilt_Warp',Helvetica] font-normal text-[#ffffff08] text-[clamp(52px,18vw,154px)] tracking-[-2px] lg:tracking-[-7.36px] leading-[0.9] whitespace-nowrap pointer-events-none select-none">
+                  Right Call
+                </div>
+              </div>
+      
               <div className="flex justify-center lg:justify-end">
                 <ContactFormSection />
+
               </div>
+              
             </div>
+            
           </div>
+          
         </section>
 
     
