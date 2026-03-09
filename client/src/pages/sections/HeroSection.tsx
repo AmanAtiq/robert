@@ -19,13 +19,17 @@ const verticalLines = [
 
 export const HeroSection = (): JSX.Element => {
   return (
-    <section className="relative w-full h-[849px] bg-[#0e0519] overflow-hidden">
-      <div className="relative w-full h-full overflow-hidden">
+    <section className="relative w-full min-h-[780px] lg:h-[849px] bg-[#0e0519] overflow-hidden">
+      <div className="relative w-full min-h-[780px] lg:h-full overflow-hidden">
         <img
           className="absolute inset-0 w-full h-full object-cover"
           alt="Background"
           src="/figmaAssets/image-283.png"
         />
+
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0e0519]/25 via-[#0e0519]/60 to-[#0e0519]/95 lg:hidden" />
+
+        <div className="hidden lg:block">
 
         {verticalLines.map((line, index) => (
           <img
@@ -145,6 +149,82 @@ export const HeroSection = (): JSX.Element => {
           className="absolute top-[616px] left-[976px] w-[712px] h-[234px]"
           alt="Decorative vector"
           src="/figmaAssets/vector-44.svg"
+        />
+        </div>
+
+        <div className="relative z-20 lg:hidden px-4 sm:px-6 pt-20 pb-10">
+          <div className="w-[170px] h-14 relative">
+            <div className="absolute top-[9px] left-[69px] h-[39px] [font-family:'Tilt_Warp',Helvetica] font-normal text-white text-[18px] tracking-[-0.54px] leading-[18px]">
+              Robert
+              <br />
+              Vandervoort
+            </div>
+
+            <img
+              className="absolute top-2.5 left-0 w-[33px] h-[38px]"
+              alt="Logo subtract"
+              src="/figmaAssets/subtract.svg"
+            />
+
+            <img
+              className="absolute top-2.5 left-[42px] w-[17px] h-[35px]"
+              alt="Logo vector"
+              src="/figmaAssets/vector-42.svg"
+            />
+
+            <img
+              className="absolute top-2.5 left-[27px] w-[18px] h-[38px]"
+              alt="Logo vector"
+              src="/figmaAssets/vector-43.svg"
+            />
+          </div>
+
+          <div className="mt-8 flex items-center gap-1.5">
+            <div className="w-2 h-2 bg-[#9c2d1d] rounded-[1px]" />
+            <span className="[font-family:'Manrope',Helvetica] font-medium text-white text-lg tracking-[-0.36px] leading-6">
+              Strategic Advisor
+            </span>
+          </div>
+
+          <h1 className="mt-4 [font-family:'Tilt_Warp',Helvetica] font-normal text-white text-[32px] sm:text-[40px] tracking-[-0.8px] leading-[1.2]">
+            Who Leaders Call When the Stakes Are High and Getting It Wrong Costs
+            Millions
+          </h1>
+
+          <p className="mt-5 [font-family:'Manrope',Helvetica] font-medium text-[#d6d6d6] text-lg sm:text-xl tracking-[-0.4px] leading-[1.5]">
+            I pressure-test ideas before you waste people, capital, or
+            credibility.
+          </p>
+
+          <div className="mt-6 flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
+            <Button className="h-auto bg-[#972b1c] hover:bg-[#972b1c]/90 text-white rounded-lg px-6 py-3 gap-2.5 w-full sm:w-auto">
+              <span className="[font-family:'Manrope',Helvetica] font-medium text-base sm:text-lg tracking-[-0.36px]">
+                Book Me to Speak
+              </span>
+              <ArrowRightIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+            </Button>
+
+            <Button
+              variant="outline"
+              className="h-auto bg-transparent hover:bg-white/10 text-white border-white rounded-lg px-6 py-3 gap-2.5 w-full sm:w-auto"
+            >
+              <span className="[font-family:'Manrope',Helvetica] font-medium text-base sm:text-lg tracking-[-0.36px]">
+                Get No-BS Consulting
+              </span>
+              <ArrowRightIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+            </Button>
+          </div>
+
+          <p className="mt-7 max-w-[560px] [font-family:'Manrope',Helvetica] font-medium text-white text-base sm:text-lg tracking-[-0.36px] leading-[1.6]">
+            Trusted inside Fortune 100 and global enterprise environments for
+            high-stakes AI, product, and governance decisions.
+          </p>
+        </div>
+
+        <img
+          className="absolute bottom-0 right-[-140px] w-[360px] sm:w-[460px] h-auto object-cover opacity-40 pointer-events-none lg:hidden"
+          alt="Robert Vandervoort portrait"
+          src="/figmaAssets/gemini-generated-image-xpdyf8xpdyf8xpdy-2.png"
         />
       </div>
     </section>
