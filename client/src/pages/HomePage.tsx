@@ -96,6 +96,23 @@ const bioPoints = [
   "I believe in leaving things better, unless you're algae on my boat (sorry, no mercy!)",
 ];
 
+const QuoteMarkIcon = (): JSX.Element => (
+  <svg
+    width="40"
+    height="40"
+    viewBox="0 0 40 40"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="w-10 h-10 mb-8"
+    aria-hidden="true"
+  >
+    <path
+      d="M35.0168 16.668H30.2668C30.7168 14.968 31.9501 12.4846 35.4168 11.618L36.6834 11.3013V6.66797H35.0168C30.3834 6.66797 26.8334 7.9513 24.5001 10.4846C21.3501 13.9013 21.6668 18.2846 21.6834 18.3346V30.0013C21.6834 31.8346 23.1834 33.3346 25.0168 33.3346H35.0168C36.8501 33.3346 38.3501 31.8346 38.3501 30.0013V20.0013C38.3501 18.168 36.8501 16.668 35.0168 16.668ZM15.0168 16.668H10.2668C10.7168 14.968 11.9501 12.4846 15.4168 11.618L16.6834 11.3013V6.66797H15.0168C10.3834 6.66797 6.83344 7.9513 4.50011 10.4846C1.35011 13.9013 1.66678 18.2846 1.68344 18.3346V30.0013C1.68344 31.8346 3.18344 33.3346 5.01678 33.3346H15.0168C16.8501 33.3346 18.3501 31.8346 18.3501 30.0013V20.0013C18.3501 18.168 16.8501 16.668 15.0168 16.668Z"
+      fill="#9C2D1D"
+    />
+  </svg>
+);
+
 export const HomePage = (): JSX.Element => {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   return (
@@ -123,9 +140,9 @@ export const HomePage = (): JSX.Element => {
             <span className="text-white">
               I Ruin Bad Ideas Early So You
               <br />
-              only Invest In What&apos;s{" "}
+              Only Invest In What&apos;s{" "}
             </span>
-            <span className="text-[#d84935]">truly worth building</span>
+            <span className="text-[#d84935]">Truly Worth Building</span>
           </h2>
         </div>
       </section>
@@ -165,7 +182,7 @@ export const HomePage = (): JSX.Element => {
               {approachPrinciples.map((principle, index) => (
                 <div
                   key={index}
-                  className={`flex flex-col gap-3 pb-6 ${
+                  className={`flex flex-col gap-3 py-8 first:pt-0 ${
                     index < approachPrinciples.length - 1
                       ? "border-b border-[#d84935]"
                       : ""
@@ -236,7 +253,7 @@ export const HomePage = (): JSX.Element => {
                 {keynotes.map((keynote, index) => (
                   <div
                     key={index}
-                    className={`py-6 relative z-10 ${
+                    className={`py-8 first:pt-0 relative z-10 ${
                       index < keynotes.length - 1 ? "border-b border-[#d84935]" : ""
                     }`}
                   >
@@ -275,7 +292,7 @@ export const HomePage = (): JSX.Element => {
             {testimonials.map((t, i) => (
               <Card key={i} className="flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-27px)] bg-[#ffffff12] border-none relative">
                 <CardContent className="p-10">
-                  <img className="w-10 h-10 mb-8" src="/figmaAssets/boxicons-quote-left-filled.svg" alt="Quote" />
+                  <QuoteMarkIcon />
                   <p className="text-[#b7b7b7] text-lg lg:text-xl leading-[30px] mb-8 tracking-tight">{t.quote}</p>
                   <div className="w-full h-px bg-[#d84935] mb-8" />
                   <div className="flex items-center gap-4">
@@ -325,9 +342,10 @@ export const HomePage = (): JSX.Element => {
                       viewBox="0 0 18 20" 
                       fill="none" 
                       xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
                     >
                       <path 
-                        d="M16.7071 5.29289C17.0976 5.68342 17.0976 6.31658 16.7071 6.70711L8.70711 14.7071C8.31658 15.0976 7.68342 15.0976 7.29289 14.7071L3.29289 10.7071C2.90237 10.3166 2.90237 9.68342 3.29289 9.29289C3.68342 8.90237 4.31658 8.90237 4.70711 9.29289L8 12.5858L15.2929 5.29289C15.6834 4.90237 16.3166 4.90237 16.7071 5.29289Z" 
+                        d="M17.6224 4.11621C18.1246 4.60449 18.1246 5.39746 17.6224 5.88574L7.33669 15.8857C6.83446 16.374 6.01883 16.374 5.5166 15.8857L0.373744 10.8857C-0.128488 10.3975 -0.128488 9.60449 0.373744 9.11621C0.875977 8.62793 1.6916 8.62793 2.19383 9.11621L6.42866 13.2295L15.8063 4.11621C16.3086 3.62793 17.1242 3.62793 17.6264 4.11621H17.6224Z"
                         fill="#D84A35" 
                       />
                     </svg>
@@ -363,7 +381,7 @@ export const HomePage = (): JSX.Element => {
               <div className="absolute right-[30px] lg:right-[80px] top-0 w-[200px] lg:w-[247px] h-[170px] lg:h-[210px] rounded-[10px] overflow-hidden shadow-2xl z-20 bg-[#c0c0c0]">
                 <img 
                   src="/figmaAssets/image-302.png"
-                  className="w-full h-full object-cover"
+                  className="absolute -left-[101px] -top-[46px] w-[456px] h-64 max-w-none"
                   alt="Detail" 
                 />
               </div>

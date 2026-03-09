@@ -1,5 +1,19 @@
 import { Card, CardContent } from "@/components/ui/card";
 
+const RedCaretIcon = (): JSX.Element => (
+  <svg
+    width="8"
+    height="8"
+    viewBox="0 0 8 8"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="mt-2.5 flex-shrink-0"
+    aria-hidden="true"
+  >
+    <path d="M0 0H8V8H0V0Z" fill="#D84A35" />
+  </svg>
+);
+
 const clientGains = [
   "Clearer, defensible decisions",
   "Avoidance of expensive missteps",
@@ -49,8 +63,8 @@ export const TestimonialsSection = (): JSX.Element => {
               </h2>
               <ul className="space-y-6">
                 {clientGains.map((gain, index) => (
-                  <li key={`gain-${index}`} className="flex items-center gap-4 group">
-                    <span className="w-2.5 h-2.5 bg-[#9c2d1d] rounded-full flex-shrink-0 group-hover:scale-125 transition-transform shadow-[0_0_10px_#9c2d1d]" />
+                  <li key={`gain-${index}`} className="flex items-start gap-4 group">
+                    <RedCaretIcon />
                     <span className="font-['Manrope'] font-medium text-gray-200 text-lg lg:text-xl tracking-tight group-hover:text-white transition-colors lg:whitespace-nowrap">
                       {gain}
                     </span>
@@ -65,8 +79,8 @@ export const TestimonialsSection = (): JSX.Element => {
               </h2>
               <ul className="space-y-6">
                 {enterpriseResults.map((result, index) => (
-                  <li key={`result-${index}`} className="flex items-center gap-4 group">
-                    <span className="w-2.5 h-2.5 bg-[#9c2d1d] rounded-full flex-shrink-0 group-hover:scale-125 transition-transform shadow-[0_0_10px_#9c2d1d]" />
+                  <li key={`result-${index}`} className="flex items-start gap-4 group">
+                    <RedCaretIcon />
                     <span className="font-['Manrope'] font-medium text-gray-200 text-lg lg:text-xl tracking-tight group-hover:text-white transition-colors lg:whitespace-nowrap">
                       {result}
                     </span>
